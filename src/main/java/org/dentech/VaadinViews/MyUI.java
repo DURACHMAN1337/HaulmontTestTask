@@ -10,10 +10,11 @@ import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
 
 import java.io.Serializable;
+
 @SpringUI
 @SpringViewDisplay
 @Theme("valo")
-public class MyUI  extends UI implements ViewDisplay, Serializable {
+public class MyUI extends UI implements ViewDisplay, Serializable {
 
     final VerticalLayout root = new VerticalLayout();
     public static HorizontalLayout buttonsLayout;
@@ -27,17 +28,12 @@ public class MyUI  extends UI implements ViewDisplay, Serializable {
 
         buttonsLayout = new HorizontalLayout();
 
-        Button buttonUser = new Button("Users");
-        buttonUser.addStyleName(ValoTheme.BUTTON_SMALL);
-        buttonUser.addClickListener(event -> getUI().getNavigator().navigateTo("Users"));
-
-        buttonsLayout.addComponent(buttonUser);
 
         springDisplay = new Panel();
         springDisplay.setSizeFull();
 
         root.addComponent(springDisplay);
-        root.setExpandRatio(springDisplay,1.0f);
+        root.setExpandRatio(springDisplay, 1.0f);
 
 
     }
