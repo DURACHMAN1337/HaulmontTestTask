@@ -11,35 +11,70 @@ import com.vaadin.ui.themes.ValoTheme;
 
 import java.io.Serializable;
 
+@Theme("valo")
 @SpringUI
 @SpringViewDisplay
-@Theme("valo")
 public class MyUI extends UI implements ViewDisplay, Serializable {
 
     final VerticalLayout root = new VerticalLayout();
     public static HorizontalLayout buttonsLayout;
-    private Panel springDisplay;
-
+    private Panel springViewDisplay;
 
     @Override
-    protected void init(VaadinRequest vaadinRequest) {
+    protected void init(VaadinRequest request) {
+
         root.setSizeFull();
         setContent(root);
 
+        final HorizontalLayout navigationBar = new HorizontalLayout();
+
         buttonsLayout = new HorizontalLayout();
 
-
-        springDisplay = new Panel();
-        springDisplay.setSizeFull();
-
-        root.addComponent(springDisplay);
-        root.setExpandRatio(springDisplay, 1.0f);
+        navigationBar.setWidth("100%");
 
 
+
+
+        buttonsLayout.addComponents(
+                createNavigationButton("Главная", ""),
+                createNavigationButton("Наш Банк", "Bank"),
+                createNavigationButton("Кредитные Ставки", "Credits"),
+                createNavigationButton("Наши Клиенты", "Clients"),
+                createNavigationButton("Оформление Кредита", "CreditOffer")
+        );
+        for(int i=1; i<buttonsLayout.getComponentCount(); i++)
+            buttonsLayout.getComponent(i).addStyleName(ValoTheme.BUTTON_FRIENDLY);
+
+        buttonsLayout.getComponent(0).addStyleName(ValoTheme.BUTTON_PRIMARY);
+
+        navigationBar.addComponents(buttonsLayout);
+
+
+
+        springViewDisplay = new Panel();
+        springViewDisplay.setSizeFull();
+
+        root.addComponents(navigationBar);
+        root.addComponent(springViewDisplay);
+        root.setExpandRatio(springViewDisplay, 1.0f);
+    }
+
+    private Button createNavigationButton(String caption, final String viewName) {
+        Button button = new Button(caption);
+        button.addStyleName(ValoTheme.BUTTON_SMALL);
+        button.addClickListener(event -> getUI().getNavigator().navigateTo(viewName));
+        return button;
+    }
+
+    public static void setStyleForButton(int indexOfCurrentPage) {
+        int countOfButtons = buttonsLayout.getComponentCount();
+        for(int i=1; i<countOfButtons; i++)
+            buttonsLayout.getComponent(i).removeStyleName(ValoTheme.BUTTON_BORDERLESS_COLORED);
+        buttonsLayout.getComponent(indexOfCurrentPage).addStyleName(ValoTheme.BUTTON_BORDERLESS_COLORED);
     }
 
     @Override
     public void showView(View view) {
-        springDisplay.setContent((Component) view);
+        springViewDisplay.setContent((Component) view);
     }
 }
