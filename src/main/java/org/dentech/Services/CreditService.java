@@ -46,4 +46,9 @@ public class CreditService {
         creditRepo.save(credit);
         System.out.println("Save Credit: " + credit.getCreditLimit() + ", " + credit.getCreditPercent());
     }
+
+    public List<Credit> findCreditByAmount(Long creditAmount){
+        return creditRepo.findCreditsByAmount(creditAmount);
+    }
+
 }

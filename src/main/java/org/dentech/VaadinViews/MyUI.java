@@ -61,7 +61,7 @@ public class MyUI extends UI implements ViewDisplay, Serializable {
 
     private Button createNavigationButton(String caption, final String viewName) {
         Button button = new Button(caption);
-        button.addStyleName(ValoTheme.BUTTON_SMALL);
+        button.addStyleName(ValoTheme.BUTTON_LARGE);
         button.addClickListener(event -> getUI().getNavigator().navigateTo(viewName));
         return button;
     }

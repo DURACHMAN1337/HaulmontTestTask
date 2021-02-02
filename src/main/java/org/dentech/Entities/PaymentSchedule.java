@@ -31,7 +31,24 @@ public class PaymentSchedule extends AbstractEntityClass {
     @Column(name = "percent_repayment_amount")
     private Double percentRepayment;
 
+    public PaymentSchedule() {
+    }
 
+    public PaymentSchedule(Date dateOfPayment, Double paymentAmount, Double bodyRepayment, Double percentRepayment) {
+        this.dateOfPayment = dateOfPayment;
+        this.paymentAmount = paymentAmount;
+        this.bodyRepayment = bodyRepayment;
+        this.percentRepayment = percentRepayment;
+    }
 
+    @Override
+    public String toString() {
+        return
+                "Дата платежа : " + this.dateOfPayment +
+                " Сумма платежа : " + this.paymentAmount +
+                " Тело платежа : " + this.bodyRepayment +
+                " Проценты : " + this.percentRepayment +
+                '}';
+    }
 }
 

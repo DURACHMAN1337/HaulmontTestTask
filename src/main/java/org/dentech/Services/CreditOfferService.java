@@ -31,4 +31,8 @@ public class CreditOfferService {
     public void save(CreditOffer creditOffer){
         creditOfferRepo.save(creditOffer);
     }
+
+    public List<CreditOffer> findAllOffersForClient(long bankId){
+        return creditOfferRepo.findAllOffersForClient(bankId);
+    }
 }

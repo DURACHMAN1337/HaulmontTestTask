@@ -32,15 +32,14 @@ public class Credit extends AbstractEntityClass implements Comparable<Credit> {
 
     @Override
     public String toString() {
-        return "Credit{" +
-                "creditLimit=" + this.creditLimit +
-                ", creditPercent=" + this.creditPercent +
-                '}';
+        return
+                "Лимит по кредиту : " + this.creditLimit +
+                        " Процент по кредиту : " + this.creditPercent;
     }
 
     @Override
     public int compareTo(Credit credit) {
-        return  this.getCreditLimit().compareTo(credit.getCreditLimit());
+        return this.getCreditLimit().compareTo(credit.getCreditLimit());
     }
 
 }

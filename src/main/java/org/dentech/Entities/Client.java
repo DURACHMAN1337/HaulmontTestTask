@@ -52,14 +52,13 @@ public class Client extends AbstractEntityClass implements Comparable<Client> {
 
     @Override
     public String toString() {
-        return "Client{" +
-                "firstname='" + this.firstname + '\'' +
-                ", surname='" + this.surname + '\'' +
-                ", patronymic='" + this.patronymic + '\'' +
-                ", phoneNumber=" + this.phoneNumber +
-                ", email='" + this.email + '\'' +
-                ", passport=" + this.passport +
-                '}';
+        return
+                " Фамилия : " + this.surname + " | " +
+                        " Имя : " + this.firstname + " | " +
+                        " Отчество : " + this.patronymic + " | " +
+                        " Телефон : +7" + this.phoneNumber + " | " +
+                        " E-mail : " + this.email + " | " +
+                        " Пасспорт : " + this.passport ;
     }
 
     @Override
