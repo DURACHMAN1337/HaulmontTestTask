@@ -47,8 +47,8 @@ public class PaymentSchedule extends AbstractEntityClass {
                 "Дата платежа : " + this.dateOfPayment +
                 " Сумма платежа : " + this.paymentAmount +
                 " Тело платежа : " + this.bodyRepayment +
-                " Проценты : " + this.percentRepayment +
-                '}';
+                " Проценты  : " + this.percentRepayment + " руб."
+                ;
     }
 }
 

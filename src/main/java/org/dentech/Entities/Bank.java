@@ -33,9 +33,9 @@ public class Bank extends AbstractEntityClass {
 
     @Override
     public String toString() {
-        return "Bank{" +
-                "client=" + this.client +
-                ", bankCredit=" + this.bankCredit +
+        return
+                "Клиент : " + this.client + "\n" +
+                "Кредит в банке : " + this.bankCredit +
                 '}';
     }
 }

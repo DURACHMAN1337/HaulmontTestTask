@@ -44,7 +44,7 @@ public class CreditOfferView extends VerticalLayout implements View {
 
     @PostConstruct
     void init() {
-        MyUI.setStyleForButton(3);
+        MyUI.setStyleForButton(4);
         Page.getCurrent().setTitle("CreditOffer");
         Label header = new Label("$$$ Оформление кредита $$$");
         header.addStyleName(ValoTheme.LABEL_H1);

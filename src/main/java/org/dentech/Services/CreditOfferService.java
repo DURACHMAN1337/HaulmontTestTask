@@ -16,23 +16,28 @@ public class CreditOfferService {
     public CreditOfferService() {
     }
 
-    public void delete(CreditOffer creditOffer){
+    public void delete(CreditOffer creditOffer) {
         creditOfferRepo.delete(creditOffer);
     }
 
-    public void deleteById(Long id){
+    public void deleteById(Long id) {
         creditOfferRepo.deleteById(id);
     }
 
-    public List<CreditOffer> getAll(){
+    public List<CreditOffer> getAll() {
         return creditOfferRepo.findAll();
     }
 
-    public void save(CreditOffer creditOffer){
+    public void save(CreditOffer creditOffer) {
         creditOfferRepo.save(creditOffer);
     }
 
-    public List<CreditOffer> findAllOffersForClient(long bankId){
+    public List<CreditOffer> findAllOffersForClient(long bankId) {
         return creditOfferRepo.findAllOffersForClient(bankId);
+    }
+
+    public void deleteAllOffersForClient(long bankID) {
+
+        creditOfferRepo.deleteAllOffersForClient(bankID);
     }
 }

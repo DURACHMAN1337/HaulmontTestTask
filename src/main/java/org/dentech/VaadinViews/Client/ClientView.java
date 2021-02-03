@@ -12,6 +12,7 @@ import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
 import org.dentech.Entities.Client;
 import org.dentech.Services.ClientService;
+import org.dentech.VaadinViews.MyUI;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
@@ -28,6 +29,7 @@ public class ClientView extends VerticalLayout implements View {
     @PostConstruct
     void init() {
 
+        MyUI.setStyleForButton(3);
         Button addButton = new Button("Добавить Клиента");
         Button editButton = new Button("Изменить Данные");
         Button deleteButton = new Button("Удалить Клиента");
